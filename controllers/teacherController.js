@@ -12,7 +12,7 @@ const createTeacher = async (req, res) => {
 
 const getAllTeachers = async (req, res) => {
     try {
-        const teachers = await Teacher.find({});
+        const teachers = await Teacher.find({}).sort({name: 1, _id: 1});;
         res.status(200).send(teachers);
     } catch (err) {
         res.status(500).send(err);
@@ -22,10 +22,10 @@ const getAllTeachers = async (req, res) => {
 const getSingleTeacher = async (req, res) => {
     try {
         const _id = req.params.id;
-        const teacher = await Teacher.findOne({ _id });
+        const teacher = await Teacher.findOne({ _id })
         res.status(200).send(teacher);
     } catch (err) {
-        res.status(500).send(err);
+        res.status(404).send(err);
     }
 }
 const deleteSingleTeacher = async (req, res) => {

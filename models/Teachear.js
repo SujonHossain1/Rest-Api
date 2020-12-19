@@ -35,7 +35,25 @@ const teacherSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    
+    address: {
+        street: {
+            type: String,
+            trim: true,
+        },
+        suite: {
+            type: String,
+            trim: true,
+        },
+        city: {
+            type: String,
+            trim: true,
+        },
+        zipcode: {
+            type: Number,
+            trim: true,
+        }
+    }
+
 })
 
 // create a document for a teacherSchema 
